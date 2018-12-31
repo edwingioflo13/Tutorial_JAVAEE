@@ -78,6 +78,17 @@ public class Usuario implements Serializable {
         this.accesoList = accesoList;
     }
 
+    public String muestraAccesos() {
+        String retorno = "";
+        for (int i = 0; i < accesoList.size(); i++) {
+            retorno += accesoList.get(i).getCodigoacceso();
+            if (i != accesoList.size() - 1) {
+                retorno += ", ";
+            }
+        }
+        return retorno;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -102,5 +113,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "susolabs.Usuario[ nombreusuario=" + nombreusuario + " ]";
     }
-    
+
 }

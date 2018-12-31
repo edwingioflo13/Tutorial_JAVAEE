@@ -6,7 +6,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import susolabs.entidades.Usuario;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-12-31T13:49:35")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-12-31T15:04:10")
 @StaticMetamodel(Acceso.class)
 public class Acceso_ { 
 

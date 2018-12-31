@@ -3,24 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package susolabs;
 
+
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import susolabs.entidades.Acceso;
 import susolabs.facade.AccesoFacadeLocal;
-import susolabs.entidades.*;
 
 /**
  *
@@ -30,6 +21,9 @@ import susolabs.entidades.*;
 @RequestScoped
 public class accesoBean {
 
+    /**
+     * Creates a new instance of accesoBean
+     */
     @EJB
     private AccesoFacadeLocal accesoFacade;
     
@@ -38,13 +32,18 @@ public class accesoBean {
     private Acceso accesoEditar = new Acceso();
     
     private List<Acceso> filtro;
-    
+
     public accesoBean() {
     }
+    
     
     public void guardar(){
         accesoFacade.create(acceso);
         acceso = new Acceso();
+    }
+    
+    public void eliminar(Acceso accesoEliminar){
+        accesoFacade.remove(accesoEliminar);
     }
     
     public void editar(){
@@ -52,12 +51,12 @@ public class accesoBean {
         accesoEditar = new Acceso();
     }
     
-    public void eliminar(Acceso accesoBorrar){
-        accesoFacade.remove(accesoBorrar);
+    public List<Acceso> buscar(){
+       return accesoFacade.findAll();
     }
     
-    public List<Acceso> buscar(){
-        return accesoFacade.findAll();
+    public void accesoSeleccionado(Acceso accesoSeleccion) {
+        this.accesoEditar = accesoSeleccion;
     }
 
     public Acceso getAcceso() {
@@ -68,6 +67,14 @@ public class accesoBean {
         this.acceso = acceso;
     }
 
+    public Acceso getAccesoEditar() {
+        return accesoEditar;
+    }
+
+    public void setAccesoEditar(Acceso accesoEditar) {
+        this.accesoEditar = accesoEditar;
+    }
+
     public List<Acceso> getFiltro() {
         return filtro;
     }
@@ -76,16 +83,4 @@ public class accesoBean {
         this.filtro = filtro;
     }
 
-    public Acceso getAccesoEditar() {
-        return accesoEditar;
-    }
-
-    public void setAccesoEditar(Acceso accesoEditar) {
-        this.accesoEditar = accesoEditar;
-    }
-    
-     public void accesoSeleccionado(Acceso accesoSeleccion) {
-        this.accesoEditar = accesoSeleccion;
-    }
-    
 }
