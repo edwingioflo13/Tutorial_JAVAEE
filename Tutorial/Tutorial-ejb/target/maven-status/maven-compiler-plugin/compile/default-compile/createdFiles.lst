@@ -1,0 +1,10 @@
+susolabs\facade\AbstractFacade.class
+susolabs\facade\UsuarioFacadeLocal.class
+susolabs\entidades\Acceso_.class
+susolabs\entidades\Acceso.class
+susolabs\facade\AccesoFacade.class
+susolabs\entidades\Usuario.class
+susolabs\facade\UsuarioFacade.class
+susolabs\entidades\Usuario_.class
+susolabs\facade\AccesoFacadeLocal.class
+susolabs\NewSessionBean.class
